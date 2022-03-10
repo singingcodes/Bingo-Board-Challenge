@@ -12,13 +12,25 @@
 </head>
 <body>
     <div>
-        <h1 class="heading">Bingo</h1>
+        <h1 class="heading">Bingo Board</h1>
+    </div>
+    <p>Welcome!!!! Do have a great time</p>
+    <div class="btn">
+        <button id="btn" onclick="randomizeNumber()">Randomize</button>
     </div>
     <div id="container">
         <!-- This div is the container that houses the cells -->
     </div>
+   
+    <div>
+        <h4 class="heading">User Board</h4>
+    </div>
     <div class="btn">
-        <button id="btn" onclick="randomizeNumber()">Randomize</button>
+        <button id="btn" onclick="randomizeUserBoard()">Select Board</button>
+    </div>
+    <p>Click button five times to choose board</p>
+    <div id="user-board">
+
     </div>
     <script src="./index.js"></script>
 </body>

@@ -1,5 +1,5 @@
 const cellCount = 76;
-
+const userBoardCount = 24;
 function displayBingoCells() {
   let containerNode = document.getElementById("container");
   for (let cell = 1; cell <= cellCount; cell++) {
@@ -22,18 +22,30 @@ function randomizeNumber() {
   }
 }
 
-// function selectCell(event) {
-//   let selectedCellNode = event.target;
-//   let previouslySelectedCell = document.querySelector(".selected-cell");
-//   if (previouslySelectedCell !== null) {
-//     previouslySelectedCell.classList.remove("selected-cell");
-//   }
-//   selectedCellNode.classList.add("selected-cell");
-
-//   // displayBingoCells()
-// }
+function displayUserBoard() {
+  let userBoardNode = document.getElementById("user-board");
+  for (let board = 1; board <= userBoardCount; board++) {
+    let boardNode = document.createElement("div");
+    boardNode.innerText = board;
+    boardNode.classList.add("cell");
+    userBoardNode.appendChild(boardNode);
+  }
+}
+function randomizeUserBoard() {
+  function randomNumb() {
+    return Math.floor(Math.random() * 24) + 1;
+  }
+  let randNum = randomNumb();
+  let selectCell = document.querySelectorAll(".board");
+  for (let i = 0; i < selectCell.length; i++) {
+    if (randNum === parseInt(selectCell[i].innerText)) {
+      selectCell[i].classList.add("selected-cell");
+    }
+  }
+}
 function onLoad() {
   // I can put more than one thing
   displayBingoCells();
+  displayUserBoard();
 }
 window.onload = onLoad;
