@@ -7,23 +7,31 @@ function displayBingoCells() {
     cellNode.innerText = cell;
     cellNode.classList.add("cell");
     containerNode.appendChild(cellNode);
-    containerNode.addEventListener("click", selectCell);
   }
 }
-function randomizeNumber(min, max) {
-  let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-  console.log(randomNumber);
-}
-function selectCell(event) {
-  let selectedCellNode = event.target;
-  let previouslySelectedCell = document.querySelector(".selected-cell");
-  if (previouslySelectedCell !== null) {
-    previouslySelectedCell.classList.remove("selected-cell");
+function randomizeNumber() {
+  function randomNum() {
+    return Math.floor(Math.random() * cellCount) + 1;
   }
-  selectedCellNode.classList.add("selected-cell");
+  let randNum = randomNum();
+  let selectCell = document.querySelectorAll(".cell");
+  for (let i = 0; i < selectCell.length; i++) {
+    if (randNum === parseInt(selectCell[i].innerText)) {
+      selectCell[i].classList.add("selected-cell");
+    }
+  }
+}
 
-  // displayBingoCells()
-}
+// function selectCell(event) {
+//   let selectedCellNode = event.target;
+//   let previouslySelectedCell = document.querySelector(".selected-cell");
+//   if (previouslySelectedCell !== null) {
+//     previouslySelectedCell.classList.remove("selected-cell");
+//   }
+//   selectedCellNode.classList.add("selected-cell");
+
+//   // displayBingoCells()
+// }
 function onLoad() {
   // I can put more than one thing
   displayBingoCells();
